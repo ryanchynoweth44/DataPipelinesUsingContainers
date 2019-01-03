@@ -7,7 +7,7 @@ This repository shows an end to end implementation using containers to extract d
  - [Open Weather Map Free Account](https://openweathermap.org/appid)
  - Basic knowledge and local installation of [Python](https://www.anaconda.com/download/)
  - Python IDE. I use [Visual Studio Code]()
- - Basic knowledge and local installation of [Docker]()
+ - Basic knowledge and local installation of [Docker](https://docs.docker.com/install/)
 
 
 ## Running the project 
@@ -18,11 +18,15 @@ The main part of this repository is the containerized code have written to extra
 1. Run docker image
 
 ## Blog
-
+Check out the [blog](./blog/ContainersAndDataPipelines.md) about why python and containers are a great way to implement the data extraction for you data pipelines!
 
 
 ## Walkthrough
 Please complete the following in order for an end to end implementation:  
+1. Create Helper Library
+1. Create Data extractor
+1. Create PyTests
+1. Set up CI/CD Pipelines in [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/)
 
 
 ## Conclusion
