@@ -13,7 +13,16 @@ This repository shows an end to end implementation using containers to extract d
 ## Running the project 
 The main part of this repository is the containerized code have written to extract weather data. The code is located in the "[code](./code)" folder path of this repository. If you wish to run the code you will need to do the following:
 1. Satisfy prerequisites
-1. Supply values in the [configuration file](code/application/app_config.conf). 
+1. Create a configuration file to store your secrets. I ignore my config file in git so that the secrets stay local. Please save you config as "code\application\app_config.conf". You config file should look like the following:
+   ```
+   [WeatherConfig]
+   WEATHER_API_TOKEN = <Weather API Token>
+   AZURE_TENANT_ID = <Tenant Id>
+   AZURE_SUBSCRIPTION_ID = <Subscription Id>
+   ADLS_CLIENT_ID = <Service Principle/Client Id>
+   ADLS_CLIENT_SECRET = <Client Secret>
+   ADLS_NAME = <Data Lake Name>
+   ``` 
 1. Create docker image locally
 1. Run docker image
 
