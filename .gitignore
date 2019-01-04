@@ -5,6 +5,9 @@ __pycache__/
 # C extensions
 *.so
 
+# config files so secrets stay local
+*.conf
+
 # Distribution / packaging
 .Python
 env/
