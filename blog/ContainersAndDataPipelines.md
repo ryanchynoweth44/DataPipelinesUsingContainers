@@ -3,13 +3,14 @@
 Implementing scalable and managable data solutions in the cloud can be difficult. Organizations must develop a strategy that not only succeeds technically but fits with the team's persona. There are a number of Platform as a Service (PaaS) products and Software as a Service (SaaS) products that make it easy to connect to, transform, and move data throughout your organization. However, the surplus of tools can make it difficult to figure out which ones to use and at times engineers don't want to learn or use an entirely different tool. Many of the engineers I work with love working with data using functional languages like Python, however, have a slight barrier when moving from their local desktop to the cloud. When engineers prefer more custom development I recommend implementing their data pipelines, in particular their data extractors, using Python and Docker Containers. 
 
 ## Creating Data Pipeline Containers 
-Data pipelines always begin with data extraction. Then depending on the business requirements, the developer will transform and manipulate that data to solve a business need, or simply migrate that data to a raw and aggregated data store i.e data lakes. Below is a general flow diagram of data pipelines where the transformations can be as complicated as machine learning models, or as simple as normalizing the data.
+Data pipelines always begin with data extraction. Then depending on the business requirements, the developer will transform and manipulate that data to solve a business need, or simply migrate that data to a raw and aggregated data store i.e data lakes. Below is a general flow diagram of data pipelines where the transformations can be as complicated as machine learning models, or as simple as normalizing the data. In this scenario each intermediate pipe could be a container, or the entire data pipeline could be a single container. This flexibility is left up to the developer.  
+
 ![](./imgs/GeneralDataPipeline.png)
 
 Most engineers are familiar with local IDE development using notebooks (like [Jupyter notebooks](https://jupyter.org/)) or a code editor (like [VS Code](https://code.visualstudio.com/)). Therefore, when a new data source is determined, engineers should simply start developing locally and iterate over their solution in order to package it up as a container. If the engineer is using Python to extract data, they will need to track all dependencies in a `requirements.txt` file, and make note of any special installations (like sql drivers) required to extract data and write it to a raw data lake store. Once the intial development is completed the engineer will then need to get their code ready for deployment!
 
 ## Deploying Data Pipeline Containers
-Before deploying a container there are a few things that the engineer will do before it is ready. 
+Before deploying a container there are a few things that the engineer will do before it is ready.  
 1. Create a `requirements.txt` file in the solution's root directory
 1. Create a `Dockerfile` file in the solution's root directory
 1. Make sure the data extractor is in an "application" folder off the root directory
@@ -34,7 +35,6 @@ pytest==3.5.1
 Here is an example `Dockerfile` file that starts with a python3.6 image, copies are application into the working directory, and runs our data extraction. In this case we have a python script, "dataextractor.py", in a folder called "application":   
 ```
 FROM python:3.6
-
 
 RUN mkdir /src
 COPY . /src/
@@ -61,11 +61,11 @@ Now that you have deployed the container manually to Azure Container Instance, i
 
 ## Managing Data Pipeline Containers
 
-With all data solutions I recommend a centralized enterprise scheduler. One way that I implement this scheduler is using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) (or another Python Docker Container) with [Azure Table Storage](https://azure.microsoft.com/en-us/services/storage/tables/). The Azure Function reads data from table storage and triggers a container execution. The table storage tracks:
-    - Job schedules (i.e. every 2 hours)  
-    - The last execution of the job
-    - The current status of the job
-    - Watermark (saves where we left off for incremental data pulls)
+With all data solutions I recommend a centralized enterprise scheduler. One way that I implement this scheduler is using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) (or another Python Docker Container) with [Azure Table Storage](https://azure.microsoft.com/en-us/services/storage/tables/). The Azure Function reads data from table storage and triggers a container execution. The table storage tracks:  
+- Job schedules (i.e. every 2 hours)  
+- The last execution of the job
+- The current status of the job
+- Watermark (saves where we left off for incremental data pulls)
 
 Often times companies will use a similar process to track all history the each run in order to see how the solution is operating over time. For example, tracking run duration enables an organization to view the length of each run and understand if the process needs editing based on performance.  
 
