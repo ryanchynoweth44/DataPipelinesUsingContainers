@@ -3,17 +3,17 @@ This repository shows an end to end implementation using containers to extract d
 
 ## Prerequisites
  - [Azure Subscription](https://azure.microsoft.com/en-us/free/search/?&OCID=AID719825_SEM_KX8R84uR&lnkd=Bing_Azure_Brand&msclkid=6e706d7f2c60158ed7103168c2415255&dclid=CNmloKvCp98CFVJgwQodwMcKKQ)
-    - You must have the subscription's Tenant Id, and [create an service principal with a client secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). 
+    - You must have the Subscription Id, Tenant Id, and [create an service principal with a client secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). 
  - [Open Weather Map Free Account](https://openweathermap.org/appid)
- - Basic knowledge and local installation of [Python](https://www.anaconda.com/download/)
- - Python IDE. I use [Visual Studio Code]()
- - Basic knowledge and local installation of [Docker](https://docs.docker.com/install/)
+ - [Visual Studio Code](https://code.visualstudio.com/) or another IDE
+ - Local installation of [Python](https://www.anaconda.com/download/)
+ - Local installation of [Docker](https://docs.docker.com/install/)
 
 
 ## Running the project 
 The main part of this repository is the containerized code have written to extract weather data. The code is located in the "[code](./code)" folder path of this repository. If you wish to run the code you will need to do the following:
 1. Satisfy prerequisites
-1. Create a configuration file to store your secrets. I ignore my config file in git so that the secrets stay local. Please save you config as "code\application\app_config.conf". You config file should look like the following:
+1. Create a configuration file to store your secrets. I ignore my config file in git so that the secrets stay local. Please save you config as `code\application\app_config.conf`. You config file should look like the following:
    ```
    [WeatherConfig]
    WEATHER_API_TOKEN = <Weather API Token>
@@ -32,11 +32,12 @@ Check out the [blog](./blog/ContainersAndDataPipelines.md) about why python and 
 
 ## Walkthrough
 Please complete the following in order for an end to end implementation:  
-1. Create Helper Library
-1. Create Data extractor
-1. Create PyTests
-1. Set up CI/CD Pipelines in [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/)
+1. [Deploy Resources](walkthrough/00_DeployingAzureResources.md)
+1. [Create Data extractor](walkthrough/01_WritingDataExtractors.md)
+1. [Deploy to Azure Container Instance](walkthrough/02_DeployToACI.md)
 
 
 ## Conclusion
 If there are any confusing steps or errors please let me know. Any other comments or questions you can contact me at rchynoweth@10thmagnitude.com. 
+
+Coming soon is another repository the shows basic devops (AI/Data Ops) workflows for data containers! 
