@@ -8,6 +8,7 @@ This repository shows an end to end implementation using containers to extract d
  - [Visual Studio Code](https://code.visualstudio.com/) or another IDE
  - Local installation of [Python](https://www.anaconda.com/download/)
  - Local installation of [Docker](https://docs.docker.com/install/)
+ - Local installation of the [Azure CLI Tool](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## Running the project 
