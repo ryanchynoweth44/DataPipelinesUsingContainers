@@ -49,9 +49,9 @@ Please download and install the [Azure Command Line Interface](https://docs.micr
     ```
 
 1. Next we will want to build and run the container locally.
-```
-docker run -d -p 8080:80 demo-data-extractor
-```
+    ```
+    docker run -d -p 8080:80 demo-data-extractor
+    ```
 
 ## Deploy Container to ACI
 
