@@ -9,7 +9,7 @@ class AppHelper(object):
     This class is a helper class for the data extractor. It supplies function to extract data and write it to adls. 
     """
 
-    def __init__(self, config_file=os.path.dirname(os.path.realpath(__file__)) + "\\app_config.conf", env="WeatherConfig"):
+    def __init__(self, config_file="application/app_config.conf", env="WeatherConfig"):
         self.weather_api_token = None
         self.azure_tenant_id = None
         self.adls_client_id = None
@@ -26,7 +26,15 @@ class AppHelper(object):
         :return None
         """
         config = configparser.RawConfigParser(allow_no_value=True)
+        
         config.read(filenames = [config_file])
+        if len(config.read(filenames = [config_file])) == 0:
+            print("-------------- Unable to locate config file. Check your working directory.")
+            print("-------------- Current File Dir: " + str(os.path.dirname(os.path.realpath(__file__))))
+            print("-------------- Current Working Dir: " + str(os.getcwd()))
+            print("-------------- Files in Working Dir: " )
+            print(os.listdir("/application"))
+            
         ### Setting values here ###
         self.weather_api_token = config.get(env, "WEATHER_API_TOKEN")
         self.azure_tenant_id = config.get(env, "AZURE_TENANT_ID")

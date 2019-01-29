@@ -4,5 +4,4 @@ RUN mkdir /src
 COPY . /src/
 WORKDIR /src
 RUN pip install -r requirements.txt
-RUN pip install .
-CMD [ "python", "./application/extract_data.py" ]
+CMD [ "python", "-u", "./application/extract_data.py" ]

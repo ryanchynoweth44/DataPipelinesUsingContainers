@@ -17,7 +17,3 @@ Azure Container Registry allows you to store images for all types of containers.
 1. In the same resource group as your Azure Data Lake Store, [Create an Azure Container Registry.](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
 
 
-## Azure Container Instance
-Azure Container Instances (ACI) offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. We will use ACI to as a deployment target for our containers.  
-
-1. In the same resource group that you have been using, [Create an Azure Container Instance](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal) resource. 

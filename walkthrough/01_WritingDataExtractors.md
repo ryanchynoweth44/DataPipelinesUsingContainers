@@ -25,7 +25,7 @@ As with all development you may have different classes or functions. Since this 
     This class is a helper class for the data extractor. It supplies function to extract data and write it to adls. 
     """
 
-    def __init__(self, config_file=os.path.dirname(os.path.realpath(__file__)) + "\\app_config.conf", env="WeatherConfig"):
+    def __init__(self, config_file="application/app_config.conf", env="WeatherConfig"):
         self.weather_api_token = None
         self.azure_tenant_id = None
         self.adls_client_id = None
@@ -109,10 +109,11 @@ import requests
 import os, sys
 import datetime
 import time
+from app_helper import AppHelper
 
 while True:
     # reconfigure the app helper
-    from app_helper import AppHelper
+    print("Connecting to Azure Data Lake Store.")
     appHelp = AppHelper()
     adls_connect_obj = appHelp.connect_adls()
 
@@ -122,17 +123,21 @@ while True:
     cities = ['Redmond, WA, USA','Seattle, WA, USA', 'Kirkland, WA, USA', 'Woodinville, WA, USA', 'Tacoma, WA, USA', 'Bellevue, WA, USA']
 
     # get request to get weather info
+    print("Querying weather data source.")
     r = requests.get("http://api.openweathermap.org/data/2.5/group?id=" + city_batch + "&appid=" + appHelp.weather_api_token)
 
-    # format output path by date raw/weather_data/yyyy/mm/dd/hh/mm
+    # format output path by date
     output_datetime = datetime.datetime.utcnow()
     data_output_path = "raw/weather_data/{}/{}/{}/{}/{}/weather_data.json".format(output_datetime.year, output_datetime.month, output_datetime.day, output_datetime.hour, output_datetime.minute)
 
     # write json file to adls
+    print("Writing JSON File to ADLS.")
     appHelp.write_json_file(adls_connect_obj, data_output_path, r.content.decode('utf8'))
 
     # Open Weather Map gets new data about every 10 minutes. So we will sleep for 10. 
+    print("Sleeping for 10 Minutes. Sleep started at (UTC): " + str(datetime.datetime.utcnow()))
     time.sleep(600)
+
 ```
 
 You have created a data extractor! I would recommend running this script locally for manual testing purposes. It is set up to pull new weather data every 10 minutes.  

@@ -1,4 +1,4 @@
-# Create Data Pipelines Using Docker Containers --- UNDER DEVELOPMENT
+# Create Data Pipelines Using Docker Containers
 This repository shows an end to end implementation using containers to extract data, land it in an Azure Data Lake Store, and transform data. For this example, we will be extract data from the [Open Weather Map](https://openweathermap.org) website using their free APIs.  
 
 ## Prerequisites
@@ -13,7 +13,7 @@ This repository shows an end to end implementation using containers to extract d
 
 ## Running the project 
 The main part of this repository is the containerized code have written to extract weather data. The code is located in the "[code](./code)" folder path of this repository. If you wish to run the code you will need to do the following:
-1. Satisfy prerequisites
+1. Satisfy prerequisites above 
 1. Create a configuration file to store your secrets. I ignore my config file in git so that the secrets stay local. Please save you config as `code\application\app_config.conf`. You config file should look like the following:
    ```
    [WeatherConfig]
@@ -41,4 +41,4 @@ Please complete the following in order for an end to end implementation:
 ## Conclusion
 If there are any confusing steps or errors please let me know. Any other comments or questions you can contact me at rchynoweth@10thmagnitude.com. 
 
-Coming soon is another repository the shows basic devops (AI/Data Ops) workflows for data containers! 
+Coming soon is another repository the shows basic devops (AI/Data Ops) workflows for data containers! Containers are an excellent and easy way deploy your data pipelines, and allow developers to simply augment their workflow instead of a complete change.  
