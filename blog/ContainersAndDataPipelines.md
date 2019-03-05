@@ -1,4 +1,4 @@
-# Power Data Analytics with Containers
+# Data Analytics, Data Engineering, and Containers
 
 Implementing scalable and managable data solutions in the cloud can be difficult. Organizations need to develop a strategy that not only succeeds technically but fits with their team's persona. There are a number of Platform as a Service (PaaS) products and Software as a Service (SaaS) products that make it easy to connect to, transform, and move data in your network. However, the surplus of tools can make it difficult to figure out which ones to use, and often they tools can only do a fraction of what an engineer can do with scripting language. Many of the engineers I work with love functionaly languages when working with data. My preffered data language is Python, however, there can be a barrier when moving from a local desktop to the cloud. When developing data pipelines using a language like Python I recommend using Docker Containers.  
 
