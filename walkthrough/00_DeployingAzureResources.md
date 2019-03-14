@@ -17,3 +17,5 @@ Azure Container Registry allows you to store images for all types of containers.
 1. In the same resource group as your Azure Data Lake Store, [Create an Azure Container Registry.](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
 
 
+Continue to the next portion of the walk through to [create a data extractor](./01_WritingDataExtractors.md) in a Docker Container.
+

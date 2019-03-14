@@ -91,4 +91,4 @@ Please download and install the [Azure Command Line Interface](https://docs.micr
 1. You have now deployed your data extraction container to an Azure Container Instance! Check out your Azure Data Lake Store to see the new data you created. Also, check out the logs to your container in the Azure portal. See below for an example of my logs.   
 ![](./imgs/01_ACI_Logs.png)
 
-1. While there were a several steps to deploy our container, I recommend streamlining this process by applying proper DevOps practices allowing for faster feedback and automated deployments into Dev, Test, and Production environments. Blog and walkthrough coming soon!    
+1. While there were a several steps to deploy our container, I recommend streamlining this process by applying proper DevOps practices allowing for faster feedback and automated deployments into Dev, Test, and Production environments. Blog and demo coming soon!    

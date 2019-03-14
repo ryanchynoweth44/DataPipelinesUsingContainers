@@ -140,4 +140,4 @@ while True:
 
 ```
 
-You have created a data extractor! I would recommend running this script locally for manual testing purposes. It is set up to pull new weather data every 10 minutes.  
+You have created a data extractor! I would recommend running this script locally for manual testing purposes. It is set up to pull new weather data every 10 minutes. Now learn how to [deploy your data solution](./02_DeployToACI.md) as a Docker Container in Azure!
