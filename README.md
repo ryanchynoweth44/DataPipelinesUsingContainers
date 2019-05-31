@@ -39,6 +39,6 @@ Please complete the following in order for an end to end implementation:
 
 
 ## Conclusion
-If there are any confusing steps or errors please let me know. Any other comments or questions you can contact me at rchynoweth@10thmagnitude.com. 
+If there are any confusing steps or errors please let me know. Any other comments or questions you can contact me at ryanachynoweth@gmail.com. 
 
 Coming soon is another repository the shows basic devops (AI/Data Ops) workflows for data containers! Containers are an excellent and easy way deploy your data pipelines, and allow developers to simply augment their workflow instead of a complete change.  
